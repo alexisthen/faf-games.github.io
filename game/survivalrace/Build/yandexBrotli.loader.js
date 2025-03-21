@@ -14,14 +14,12 @@ function createUnityInstance(t, n, d) {
             console.log(e)
         }
     }
-
     function r(e) {
         var t = e.reason || e.error
           , n = t ? t.toString() : e.message || e.reason || ""
           , r = t && t.stack ? t.stack.toString() : "";
         (n += "\n" + (r = r.startsWith(n) ? r.substring(n.length) : r).trim()) && l.stackTraceRegExp && l.stackTraceRegExp.test(n) && E(n, e.filename || t && (t.fileName || t.sourceURL) || "", e.lineno || t && (t.lineNumber || t.line) || 0)
     }
-
     function e(e, t, n) {
         var r = e[t];
         void 0 !== r && r || (console.warn('Config option "' + t + '" is missing or empty. Falling back to default value: "' + n + '". Consider updating your WebGL template to include the missing config option.'),
@@ -72,7 +70,6 @@ function createUnityInstance(t, n, d) {
         l[o] = n[o];
     l.streamingAssetsUrl = new URL(l.streamingAssetsUrl,document.URL).href;
     var i = l.disabledCanvasEvents.slice();
-
     function a(e) {
         e.preventDefault()
     }
@@ -83,7 +80,6 @@ function createUnityInstance(t, n, d) {
     window.addEventListener("unhandledrejection", r);
     var s = ""
       , u = "";
-
     function f(e) {
         document.webkitCurrentFullScreenElement === t ? t.style.width && (s = t.style.width,
         u = t.style.height,
@@ -141,7 +137,6 @@ function createUnityInstance(t, n, d) {
             }
         }
     };
-
     function E(e, t, n) {
         -1 == e.indexOf("fullscreen error") && (l.startupErrorHandler ? l.startupErrorHandler(e, t, n) : l.errorHandler && l.errorHandler(e, t, n) || (console.log("Invoking error handler due to\n" + e),
         "function" == typeof dump && dump("Invoking error handler due to\n" + e),
@@ -149,7 +144,6 @@ function createUnityInstance(t, n, d) {
         alert(e),
         E.didShowErrorMessage = !0)))
     }
-
     function W(e, t) {
         if ("symbolsUrl" != e) {
             var n = l.downloadProgress[e]
@@ -181,7 +175,6 @@ function createUnityInstance(t, n, d) {
             d(.9 * (i ? (i - s - (o ? a * (o - r) / o : 0)) / i : 0))
         }
     }
-
     function O() {
         var e = this;
         this.isConnected = this.connect().then(function() {
@@ -192,11 +185,9 @@ function createUnityInstance(t, n, d) {
             console.log("[UnityCache] " + e)
         })
     }
-
     function k(e) {
         console.log("[UnityCache] " + e)
     }
-
     function B(e) {
         return B.link = B.link || document.createElement("a"),
         B.link.href = e,
@@ -204,7 +195,6 @@ function createUnityInstance(t, n, d) {
     }
     l.SystemInfo = function() {
         var e, t, n, r, o = navigator.userAgent + " ", i = [["Firefox", "Firefox"], ["OPR", "Opera"], ["Edg", "Edge"], ["SamsungBrowser", "Samsung Browser"], ["Trident", "Internet Explorer"], ["MSIE", "Internet Explorer"], ["Chrome", "Chrome"], ["CriOS", "Chrome on iOS Safari"], ["FxiOS", "Firefox on iOS Safari"], ["Safari", "Safari"]];
-
         function a(e, t, n) {
             return (e = RegExp(e, "i").exec(t)) && e[n]
         }
@@ -561,7 +551,6 @@ function createUnityInstance(t, n, d) {
             enabled: (e = s,
             (!(t = i) || !t.method || "GET" === t.method) && ((!t || -1 != ["must-revalidate", "immutable"].indexOf(t.control)) && !!e.match("^https?://")))
         };
-
         function c(n, r) {
             return fetch(n, r).then(function(e) {
                 var t;
@@ -642,7 +631,6 @@ function createUnityInstance(t, n, d) {
                     "dec/bit_reader.js": function(e, t, n) {
                         const r = 8224
                           , o = new Uint32Array([0, 1, 3, 7, 15, 31, 63, 127, 255, 511, 1023, 2047, 4095, 8191, 16383, 32767, 65535, 131071, 262143, 524287, 1048575, 2097151, 4194303, 8388607, 16777215]);
-
                         function i(e) {
                             this.buf_ = new Uint8Array(r),
                             this.input_ = e,
@@ -737,24 +725,20 @@ function createUnityInstance(t, n, d) {
                           , ke = new Uint8Array([3, 2, 1, 0, 3, 3, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2])
                           , De = new Int8Array([0, 0, 0, 0, -1, 1, -2, 2, -3, 3, -1, 1, -2, 2, -3, 3])
                           , d = new Uint16Array([256, 402, 436, 468, 500, 534, 566, 598, 630, 662, 694, 726, 758, 790, 822, 854, 886, 920, 952, 984, 1016, 1048, 1080]);
-
                         function Be(e) {
                             var t;
                             return 0 === e.readBits(1) ? 16 : 0 < (t = e.readBits(3)) ? 17 + t : 0 < (t = e.readBits(3)) ? 8 + t : 17
                         }
-
                         function Pe(e) {
                             var t;
                             return e.readBits(1) ? 0 === (t = e.readBits(3)) ? 1 : e.readBits(t) + (1 << t) : 0
                         }
-
                         function c() {
                             this.meta_block_length = 0,
                             this.input_end = 0,
                             this.is_uncompressed = 0,
                             this.is_metadata = !1
                         }
-
                         function Ne(e) {
                             var t, n, r, o = new c;
                             if (o.input_end = e.readBits(1),
@@ -783,7 +767,6 @@ function createUnityInstance(t, n, d) {
                             }
                             return o
                         }
-
                         function Re(e, t, n) {
                             var r;
                             return n.fillBitWindow(),
@@ -792,7 +775,6 @@ function createUnityInstance(t, n, d) {
                             n.bit_pos_ += e[t].bits,
                             e[t].value
                         }
-
                         function Ve(e, t, n, r) {
                             var o = new Uint8Array(e);
                             if (r.readMoreInput(),
@@ -866,20 +848,17 @@ function createUnityInstance(t, n, d) {
                                 throw new Error("[ReadHuffmanCode] BuildHuffmanTable failed: ");
                             return m
                         }
-
                         function Me(e, t, n) {
                             return e = Re(e, t, n),
                             t = be.kBlockLengthPrefixCode[e].nbits,
                             be.kBlockLengthPrefixCode[e].offset + n.readBits(t)
                         }
-
                         function Ae(e, t) {
                             this.alphabet_size = e,
                             this.num_htrees = t,
                             this.codes = new Array(t + t * d[e + 31 >>> 5]),
                             this.htrees = new Uint32Array(t)
                         }
-
                         function qe(e, t) {
                             var n, r, o, i = {
                                 num_htrees: null,
@@ -923,7 +902,6 @@ function createUnityInstance(t, n, d) {
                             }
                             return i
                         }
-
                         function He(e, t, n, r, o, i, a) {
                             var s = 2 * n
                               , d = n;
@@ -932,13 +910,11 @@ function createUnityInstance(t, n, d) {
                             o[s + (1 & i[d])] = a,
                             ++i[d]
                         }
-
                         function a(e) {
                             return e = new r(e),
                             Be(e = new he(e)),
                             Ne(e).meta_block_length
                         }
-
                         function s(D, e) {
                             for (var t = 0, F = 0, L = 0, T = [16, 15, 11, 4], S = 0, n = 0, r = 0, o = [new Ae(0,0), new Ae(0,0), new Ae(0,0)], Y = 128 + he.READ_SIZE, i = new he(D), C = (1 << (D = Be(i))) - 16, a = 1 << D, s = a - 1, d = new Uint8Array(a + Y + pe.maxDictionaryWordLength), I = a, c = [], u = [], l = 0; l < 3 * We; l++)
                                 c[l] = new we(0,0),
@@ -1153,13 +1129,11 @@ function createUnityInstance(t, n, d) {
                             this.value = t
                         }
                         n.HuffmanCode = v;
-
                         function g(e, t) {
                             for (var n = 1 << t - 1; e & n; )
                                 n >>= 1;
                             return (e & n - 1) + n
                         }
-
                         function y(e, t, n, r, o) {
                             for (; e[t + (r -= n)] = new v(o.bits,o.value),
                             0 < r; )
@@ -1221,7 +1195,6 @@ function createUnityInstance(t, n, d) {
                             this.buffer = e,
                             this.pos = 0
                         }
-
                         function o(e) {
                             this.buffer = e,
                             this.pos = 0
@@ -1247,7 +1220,6 @@ function createUnityInstance(t, n, d) {
                     },
                     "dec/transform.js": function(e, t, n) {
                         var p = e("./dictionary");
-
                         function r(e, t, n) {
                             this.prefix = new Uint8Array(e.length),
                             this.transform = t,
@@ -1258,7 +1230,6 @@ function createUnityInstance(t, n, d) {
                                 this.suffix[r] = n.charCodeAt(r)
                         }
                         var w = [new r("",0,""), new r("",0," "), new r(" ",0," "), new r("",12,""), new r("",10," "), new r("",0," the "), new r(" ",0,""), new r("s ",0," "), new r("",0," of "), new r("",10,""), new r("",0," and "), new r("",13,""), new r("",1,""), new r(", ",0," "), new r("",0,", "), new r(" ",10," "), new r("",0," in "), new r("",0," to "), new r("e ",0," "), new r("",0,'"'), new r("",0,"."), new r("",0,'">'), new r("",0,"\n"), new r("",3,""), new r("",0,"]"), new r("",0," for "), new r("",14,""), new r("",2,""), new r("",0," a "), new r("",0," that "), new r(" ",10,""), new r("",0,". "), new r(".",0,""), new r(" ",0,", "), new r("",15,""), new r("",0," with "), new r("",0,"'"), new r("",0," from "), new r("",0," by "), new r("",16,""), new r("",17,""), new r(" the ",0,""), new r("",4,""), new r("",0,". The "), new r("",11,""), new r("",0," on "), new r("",0," as "), new r("",0," is "), new r("",7,""), new r("",1,"ing "), new r("",0,"\n\t"), new r("",0,":"), new r(" ",0,". "), new r("",0,"ed "), new r("",20,""), new r("",18,""), new r("",6,""), new r("",0,"("), new r("",10,", "), new r("",8,""), new r("",0," at "), new r("",0,"ly "), new r(" the ",0," of "), new r("",5,""), new r("",9,""), new r(" ",10,", "), new r("",10,'"'), new r(".",0,"("), new r("",11," "), new r("",10,'">'), new r("",0,'="'), new r(" ",0,"."), new r(".com/",0,""), new r(" the ",0," of the "), new r("",10,"'"), new r("",0,". This "), new r("",0,","), new r(".",0," "), new r("",10,"("), new r("",10,"."), new r("",0," not "), new r(" ",0,'="'), new r("",0,"er "), new r(" ",11," "), new r("",0,"al "), new r(" ",11,""), new r("",0,"='"), new r("",11,'"'), new r("",10,". "), new r(" ",0,"("), new r("",0,"ful "), new r(" ",10,". "), new r("",0,"ive "), new r("",0,"less "), new r("",11,"'"), new r("",0,"est "), new r(" ",10,"."), new r("",11,'">'), new r(" ",0,"='"), new r("",10,","), new r("",0,"ize "), new r("",11,"."), new r("\xc2\xa0",0,""), new r(" ",0,","), new r("",10,'="'), new r("",11,'="'), new r("",0,"ous "), new r("",11,", "), new r("",10,"='"), new r(" ",10,","), new r(" ",11,'="'), new r(" ",11,", "), new r("",11,","), new r("",11,"("), new r("",11,". "), new r(" ",11,"."), new r("",11,"='"), new r(" ",11,". "), new r(" ",10,'="'), new r(" ",11,"='"), new r(" ",10,"='")];
-
                         function m(e, t) {
                             return e[t] < 192 ? (97 <= e[t] && e[t] <= 122 && (e[t] ^= 32),
                             1) : e[t] < 224 ? (e[t + 1] ^= 32,
@@ -1330,7 +1301,6 @@ function createUnityInstance(t, n, d) {
                         for (var d = [], c = [], u = "undefined" != typeof Uint8Array ? Uint8Array : Array, r = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/", o = 0, i = r.length; o < i; ++o)
                             d[o] = r[o],
                             c[r.charCodeAt(o)] = o;
-
                         function l(e) {
                             var t = e.length;
                             if (0 < t % 4)
@@ -1343,7 +1313,6 @@ function createUnityInstance(t, n, d) {
                 };
                 for (t in n)
                     n[t].folder = t.substring(0, t.lastIndexOf("/") + 1);
-
                 function r(e, t) {
                     var n = t.match(/^\//) ? null : e ? t.match(/^\.\.?\//) ? o(e.folder + t) : i(e, t) : o(t);
                     if (n)
@@ -1387,7 +1356,6 @@ function createUnityInstance(t, n, d) {
             }
         }
     };
-
     function N(n) {
         W(n);
         var e = l.cacheControl(l[n])
@@ -1450,7 +1418,6 @@ function createUnityInstance(t, n, d) {
             "file:" == location.protocol ? c(t + ". Loading web pages via a file:// URL without a web server is not supported by this browser. Please use a local development web server to host Unity content, or use the Unity Build and Run option.", "error") : console.error(t)
         })
     }
-
     function R() {
         Promise.all([N("frameworkUrl").then(function(e) {
             var s = URL.createObjectURL(new Blob([e],{
